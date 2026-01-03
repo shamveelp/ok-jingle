@@ -1,11 +1,17 @@
-import React from 'react'
+import React, { useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
 
 const Room = () => {
-  return (
-    <div>
-      Room
-    </div>
-  )
-}
+  const [searchParams, setSearchParams] = useSearchParams();
+  const name = searchParams.get("name");
 
-export default Room
+  useEffect(() => {
+    
+  }, [name])
+
+  return <div>
+    hi {name}
+  </div>;
+};
+
+export default Room;
