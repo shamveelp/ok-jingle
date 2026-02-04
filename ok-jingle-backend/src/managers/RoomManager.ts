@@ -1,4 +1,4 @@
-import type { User } from "./Usermanager.js";
+import type { User } from "./UserManager";
 
 let GLOBAL_ROOM_ID = 1;
 
@@ -22,8 +22,7 @@ export class RoomManager {
       // roomId: roomId
     });
 
-    user1.socket.emit("new-room", {
-      type: "send-offer",
+    user1.socket.emit("send-offer", {
       roomId,
     });
   }

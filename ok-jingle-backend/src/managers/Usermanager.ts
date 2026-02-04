@@ -47,21 +47,13 @@ export class UserManager {
         (user) => user.socket.id === this.queue.pop()
     );
 
-    // user1?.socket.emit("new-room",{
-    //     type: "send-offer",
-        
-    // });
-
     if(!user1 || !user2) {
         return;
     }
 
     const room = this.roomManager.createRoom(user1, user2);
+    this.clearQueue();
   }
-
-//   generate() {
-//     return GLOBAL_ROOM_ID++;
-//   }
 
   initHandlers(socket: Socket) {
     socket.on("offer", (data: {roomId: string, sdp: string}) => {
