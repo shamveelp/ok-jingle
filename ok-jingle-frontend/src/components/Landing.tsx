@@ -1,17 +1,20 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom';
+import { useEffect, useState } from "react"
+import { Link } from "react-router-dom";
 
-const Landing = () => {
-    const [name, setName ] = useState("");
+export const Landing = () => {
+    const [name, setName] = useState("");
+    const [joined, setJoined] = useState(false);
     
-  return (
-    <div>
-      <input type="text" onChange={(e) => {
-        setName(e.target.value)
-      }} />
-      <Link to={`/room?name=${name}`}>Enter Room</Link>
-    </div>
-  )
-}
 
-export default Landing
+    useEffect(() => {
+
+    }, []);
+    
+    return <div>
+        <input type="text" onChange={(e) => {
+            setName(e.target.value);
+        }}>
+        </input>
+        <Link to={`/room/?name=${name}`}>Join</Link>
+    </div>
+}
